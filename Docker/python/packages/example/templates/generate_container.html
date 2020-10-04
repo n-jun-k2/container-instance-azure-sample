@@ -1,0 +1,7 @@
+{% macro generate_container(title, imagepath) %}
+<div class="col-lg-4 col-md-4 col-sm-12">
+    <h3 class="feature-title">{{ title }}</h3>
+    <img src="{{ url_for('static', filename=imagepath) }}" class="img-fluid">
+    <p>....</p>
+</div>
+{% endmacro %}

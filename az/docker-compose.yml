@@ -1,0 +1,5 @@
+version: '3'
+services:
+  az:
+    image: mcr.microsoft.com/azure-cli:2.9.1
+    tty: True

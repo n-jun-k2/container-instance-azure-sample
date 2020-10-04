@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Hello world</title>
+        <meta charset="utf-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+
+        <!-- Bootstrap css CDN load-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Custom css Local load -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+    </head>
+
+
+    <body>
+
+        <!-- Bootstrap jQuery CDN load -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <!--Custom javascript Loacl load -->
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+        <!-- Bootstrap Navigation bar Add  -->
+        <nav class="navbar navbar-expand-md fixed-top">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation" >
+                <!-- menu icon -->
+                <span class="navbar-toggler-icon">
+            </button>
+            {% include "navbar-collapse.html" %}
+        </nav>
+
+        <header class="page-header header container-fluid">
+            <!-- Over ray add to css class -->
+            <div class="overlay"></div>
+            <div class="description">
+                {% include "main-description.html" %}
+            </div>
+        </header>
+
+        <div class="container features">
+            <div class="row">
+                {% from "generate_container.html" import generate_container %}
+                {{ generate_container('test macro', 'images/im1.jpg') }}
+                {{ generate_container('test macro', 'images/im2.jpg') }}
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <!-- add a contact form -->
+                    <h3 class="feature-title"> Get in Touch!</h3>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Name" name="">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-contrl" placeholder="Email Address" name="email">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="4"></textarea>
+                    </div>
+                    <input type="submit" class="btn btn-secondary btn-block" value="Send" name="">
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <h6 class="text-uppercase font-weight-bold">Additional Information</h6>
+                        <p>...</p>
+                        <p>...</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <h6 class="text-upercase font-weight-bold">Contact</h6>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+            {% include "footer.html" %}
+        </footer>
+
+    </body>
+
+</html>

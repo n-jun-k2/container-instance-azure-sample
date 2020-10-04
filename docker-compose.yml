@@ -1,0 +1,13 @@
+version: '3'
+services:
+  python:
+    build: 
+      context: ./Docker/python/
+    image: ghcr.io/n-jun-k2/container-instance-azure-sample/flask_python:v1
+    tty: True
+    volumes:
+      - ./Docker/python/packages:/tmp/app
+    extra_hosts:
+      - "local_dev:${LOCAL_ADDRESS}"
+    ports:
+      - "5000:5000"
